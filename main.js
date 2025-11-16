@@ -41,3 +41,47 @@ function searchWord() {
     resultBox.innerHTML = `<p>❌ शब्द database में नहीं है।</p>`;
   }
 }
+function openTool(type) {
+  localStorage.setItem("tool", type);
+  window.location.href = "tools.html";
+}
+async function findWord() {
+  const word = document.getElementById("userInput").value.trim();
+  const tool = localStorage.getItem("tool");
+
+  if (!word) return alert("कृपया शब्द लिखें");
+
+  // bucket file load
+  const res = await fetch("public/data/bucket1.json");
+  const data = await res.json();
+
+  // अगर शब्द bucket में नहीं है:
+  if (!data[word]) {
+    document.getElementById("resultBox").innerHTML =
+      "<p>❌ डेटा नहीं मिला</p>";
+    return;
+  }
+
+  // WORD मिल गया
+  let result = data[word];
+
+  if (tool === "synonym") {
+    document.getElementById("resultBox").innerHTML =
+      "<h3>पर्यायवाची</h3><p>" + result.synonym + "</p>";
+  }
+
+  if (tool === "antonym") {
+    document.getElementById("resultBox").innerHTML =
+      "<h3>विलोम</h3><p>" + result.antonym + "</p>";
+  }
+
+  if (tool === "matra") {
+    document.getElementById("resultBox").innerHTML =
+      "<h3>मात्रा सुधार</h3><p>" + result.matra + "</p>";
+  }
+
+  if (tool === "sandhi") {
+    document.getElementById("resultBox").innerHTML =
+      "<h3>संधि विच्छेद</h3><p>" + result.sandhi + "</p>";
+  }
+}
