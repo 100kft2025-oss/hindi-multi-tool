@@ -1,22 +1,46 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hindi AI Multi Tool</title>
-    <link rel="stylesheet" href="style.css">
+  <title>Hindi Tools Suite</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<h1>Hindi AI Multi Tool (Offline Fast)</h1>
-
-<div class="tool-box">
-  <input id="inputWord" placeholder="शब्द लिखें...">
-  <button onclick="searchWord()">Search</button>
+<div class="header">
+  <h1>Hindi Writing Assistant</h1>
+  <p>Synonym • Antonym • Sandhi • Matra Fix • Plural Finder</p>
 </div>
 
-<div id="result"></div>
+<div class="tools-container">
+
+  <div class="card">
+    <img src="public/icon-synonym.png" class="icon">
+    <h3>Synonym Finder</h3>
+    <button class="btn">Open Tool</button>
+  </div>
+
+  <div class="card">
+    <img src="public/icon-antonym.png" class="icon">
+    <h3>Antonym Finder</h3>
+    <button class="btn">Open Tool</button>
+  </div>
+
+  <div class="card">
+    <img src="public/icon-matra.png" class="icon">
+    <h3>Matra Fix Tool</h3>
+    <button class="btn">Open Tool</button>
+  </div>
+
+  <div class="card">
+    <img src="public/icon-sandhi.png" class="icon">
+    <h3>Sandhi Solver</h3>
+    <button class="btn">Open Tool</button>
+  </div>
+
+</div>
 
 <script src="main.js"></script>
 </body>
 </html>
+
